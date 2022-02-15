@@ -1,5 +1,5 @@
 {
-  "name": "@napi-rs/package-template-linux-arm64-gnu",
+  "name": "zstd-linux-arm64-gnu",
   "version": "1.0.0",
   "os": [
     "linux"
@@ -7,9 +7,9 @@
   "cpu": [
     "arm64"
   ],
-  "main": "package-template.linux-arm64-gnu.node",
+  "main": "zstd.linux-arm64-gnu.node",
   "files": [
-    "package-template.linux-arm64-gnu.node"
+    "zstd.linux-arm64-gnu.node"
   ],
   "description": "Template project for writing node package with napi-rs",
   "keywords": [
