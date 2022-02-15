@@ -6,5 +6,5 @@ export class ExternalObject<T> {
     [K: symbol]: T
   }
 }
-export function compress(input: Buffer): Promise<Buffer>
-export function decompress(input: Buffer): Promise<Buffer>
+export function compress(input: string | Buffer): Promise<Buffer>
+export function decompress(input: string | Buffer): Promise<Buffer>

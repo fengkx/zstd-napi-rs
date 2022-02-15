@@ -1,3 +1,3 @@
-# `zstd-win32-x64-msvc`
+# `@fengkx/zstd-napi-win32-x64-msvc`
 
-This is the **x86_64-pc-windows-msvc** binary for `zstd`
+This is the **x86_64-pc-windows-msvc** binary for `@fengkx/zstd-napi`

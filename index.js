@@ -18,7 +18,7 @@ switch (platform) {
       if (localFileExisted) {
         nativeBinding = require('./zstd.android-arm64.node')
       } else {
-        nativeBinding = require('zstd-android-arm64')
+        nativeBinding = require('@fengkx/zstd-napi-android-arm64')
       }
     } catch (e) {
       loadError = e
@@ -32,7 +32,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./zstd.win32-x64-msvc.node')
           } else {
-            nativeBinding = require('zstd-win32-x64-msvc')
+            nativeBinding = require('@fengkx/zstd-napi-win32-x64-msvc')
           }
         } catch (e) {
           loadError = e
@@ -44,7 +44,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./zstd.win32-ia32-msvc.node')
           } else {
-            nativeBinding = require('zstd-win32-ia32-msvc')
+            nativeBinding = require('@fengkx/zstd-napi-win32-ia32-msvc')
           }
         } catch (e) {
           loadError = e
@@ -56,7 +56,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./zstd.win32-arm64-msvc.node')
           } else {
-            nativeBinding = require('zstd-win32-arm64-msvc')
+            nativeBinding = require('@fengkx/zstd-napi-win32-arm64-msvc')
           }
         } catch (e) {
           loadError = e
@@ -74,7 +74,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./zstd.darwin-x64.node')
           } else {
-            nativeBinding = require('zstd-darwin-x64')
+            nativeBinding = require('@fengkx/zstd-napi-darwin-x64')
           }
         } catch (e) {
           loadError = e
@@ -86,7 +86,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./zstd.darwin-arm64.node')
           } else {
-            nativeBinding = require('zstd-darwin-arm64')
+            nativeBinding = require('@fengkx/zstd-napi-darwin-arm64')
           }
         } catch (e) {
           loadError = e
@@ -105,7 +105,7 @@ switch (platform) {
       if (localFileExisted) {
         nativeBinding = require('./zstd.freebsd-x64.node')
       } else {
-        nativeBinding = require('zstd-freebsd-x64')
+        nativeBinding = require('@fengkx/zstd-napi-freebsd-x64')
       }
     } catch (e) {
       loadError = e
@@ -121,7 +121,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = require('./zstd.linux-x64-musl.node')
             } else {
-              nativeBinding = require('zstd-linux-x64-musl')
+              nativeBinding = require('@fengkx/zstd-napi-linux-x64-musl')
             }
           } catch (e) {
             loadError = e
@@ -132,7 +132,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = require('./zstd.linux-x64-gnu.node')
             } else {
-              nativeBinding = require('zstd-linux-x64-gnu')
+              nativeBinding = require('@fengkx/zstd-napi-linux-x64-gnu')
             }
           } catch (e) {
             loadError = e
@@ -147,7 +147,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = require('./zstd.linux-arm64-musl.node')
             } else {
-              nativeBinding = require('zstd-linux-arm64-musl')
+              nativeBinding = require('@fengkx/zstd-napi-linux-arm64-musl')
             }
           } catch (e) {
             loadError = e
@@ -158,7 +158,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = require('./zstd.linux-arm64-gnu.node')
             } else {
-              nativeBinding = require('zstd-linux-arm64-gnu')
+              nativeBinding = require('@fengkx/zstd-napi-linux-arm64-gnu')
             }
           } catch (e) {
             loadError = e
@@ -171,7 +171,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./zstd.linux-arm-gnueabihf.node')
           } else {
-            nativeBinding = require('zstd-linux-arm-gnueabihf')
+            nativeBinding = require('@fengkx/zstd-napi-linux-arm-gnueabihf')
           }
         } catch (e) {
           loadError = e

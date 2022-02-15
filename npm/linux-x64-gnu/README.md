@@ -1,3 +1,3 @@
-# `zstd-linux-x64-gnu`
+# `@fengkx/zstd-napi-linux-x64-gnu`
 
-This is the **x86_64-unknown-linux-gnu** binary for `zstd`
+This is the **x86_64-unknown-linux-gnu** binary for `@fengkx/zstd-napi`

@@ -1,9 +1,9 @@
 {
-  "name": "zstd",
+  "name": "@fengkx/zstd-napi",
   "version": "1.0.0",
-  "description": "Template project for writing node package with napi-rs",
+  "description": "zstd by napi-rs",
   "main": "index.js",
-  "repository": "git@github.com:napi-rs/package-template.git",
+  "repository": "https://github.com/fengkx/zstd",
   "license": "MIT",
   "keywords": [
     "napi-rs",

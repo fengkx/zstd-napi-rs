@@ -1,21 +1,77 @@
+import { randomBytes } from 'crypto'
+import { deflate, gzip, unzip } from 'zlib'
+
 import b from 'benny'
 
-import { plus100 } from '../index'
+import { compress, decompress } from '../index'
 
-function add(a: number) {
-  return a + 100
+function zlibGzip(bufferLike: Buffer | string): Promise<Buffer> {
+  return new Promise((resolve, reject) => {
+    gzip(bufferLike, (err, data) => {
+      if (err) {
+        return reject(err)
+      }
+      resolve(data)
+    })
+  })
+}
+
+function zlibDeflate(bufferLike: Buffer | string): Promise<Buffer> {
+  return new Promise((resolve, reject) => {
+    deflate(bufferLike, (err, data) => {
+      if (err) {
+        return reject(err)
+      }
+      resolve(data)
+    })
+  })
+}
+
+function zlibUnzip(bufferLike: Buffer | string): Promise<Buffer> {
+  return new Promise((resolve, reject) => {
+    unzip(bufferLike, (err, data) => {
+      if (err) {
+        return reject(err)
+      }
+      resolve(data)
+    })
+  })
 }
 
 async function run() {
+  const testData = randomBytes(1024 * 1024)
+  const gzipedTestData = await zlibGzip(testData)
+  const zstdTestData = await compress(testData)
+  const deflateTestData = await zlibDeflate(testData)
   await b.suite(
-    'Add 100',
+    'compress',
 
-    b.add('Native a + 100', () => {
-      plus100(10)
+    b.add('Native zstd', async () => {
+      await compress(testData)
     }),
 
-    b.add('JavaScript a + 100', () => {
-      add(10)
+    b.add('Node.js gzip', async () => {
+      await zlibGzip(testData)
+    }),
+    b.add('Node.js deflate', async () => {
+      await zlibDeflate(testData)
+    }),
+
+    b.cycle(),
+    b.complete(),
+  )
+  await b.suite(
+    'decompress',
+
+    b.add('Native zstd', async () => {
+      await decompress(zstdTestData)
+    }),
+
+    b.add('Node.js gzip', async () => {
+      await zlibUnzip(gzipedTestData)
+    }),
+    b.add('Node.js deflate', async () => {
+      await zlibUnzip(deflateTestData)
     }),
 
     b.cycle(),

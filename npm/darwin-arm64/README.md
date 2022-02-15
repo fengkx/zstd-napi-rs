@@ -1,3 +1,3 @@
-# `zstd-darwin-arm64`
+# `@fengkx/zstd-napi-darwin-arm64`
 
-This is the **aarch64-apple-darwin** binary for `zstd`
+This is the **aarch64-apple-darwin** binary for `@fengkx/zstd-napi`
