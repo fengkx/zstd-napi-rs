@@ -6,4 +6,5 @@ export class ExternalObject<T> {
     [K: symbol]: T
   }
 }
-export function plus100(input: number): number
+export function compress(input: Buffer): Promise<Buffer>
+export function decompress(input: Buffer): Promise<Buffer>

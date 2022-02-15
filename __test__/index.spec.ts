@@ -1,8 +1,21 @@
 import test from 'ava'
 
-import { plus100 } from '../index'
+import { compress, decompress } from '../index'
 
-test('sync function from native code', (t) => {
-  const fixture = 42
-  t.is(plus100(fixture), fixture + 100)
+test('should defined', (t) => {
+  t.is(typeof compress, 'function')
+  t.is(typeof decompress, 'function')
+})
+
+test('compress should smaller than origianl', async (t) => {
+  const original = Buffer.from('A'.repeat(1024 * 1024))
+  const compressed = await compress(original)
+  t.true(compressed.length < original.length)
+})
+
+test('should equal to original after decompress',async (t) => {
+  const original = Buffer.from('hello world')
+  const compressed = await compress(original)
+  const decompressed = await decompress(compressed)
+  t.deepEqual(original, decompressed)
 })
