@@ -1,13 +1,9 @@
 #![deny(clippy::all)]
-#![allow(unused)]
 
 use std::io::Cursor;
 
 use async_compression::{tokio::bufread::ZstdDecoder, tokio::write::ZstdEncoder};
-use napi::{
-  bindgen_prelude::*,
-  tokio::io::{self, ReadBuf},
-};
+use napi::bindgen_prelude::*;
 use napi_derive::napi;
 use tokio::io::{AsyncReadExt, AsyncWriteExt};
 
@@ -19,7 +15,7 @@ pub async fn compress(input: Either<String, Buffer>) -> Result<Buffer> {
   };
   let mut output = Vec::new();
   let mut encoder = ZstdEncoder::new(&mut output);
-  tokio::io::AsyncWriteExt::write_all(&mut encoder, &input)
+  tokio::io::AsyncWriteExt::write_all(&mut encoder, input)
     .await
     .unwrap();
   encoder.shutdown().await?;
@@ -34,6 +30,6 @@ pub async fn decompress(input: Either<String, Buffer>) -> Result<Buffer> {
   };
   let mut output = Vec::new();
   let mut decoder = ZstdDecoder::new(Cursor::new(input));
-  let r = decoder.read_to_end(&mut output).await;
+  decoder.read_to_end(&mut output).await?;
   Ok(Buffer::from(output))
 }

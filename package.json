@@ -1,6 +1,6 @@
 {
   "name": "@fengkx/zstd-napi",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "zstd by napi-rs",
   "main": "index.js",
   "repository": "https://github.com/fengkx/zstd",
